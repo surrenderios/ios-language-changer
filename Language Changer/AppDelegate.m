@@ -11,6 +11,8 @@
 #import "LanguageManager.h"
 #import "Locale.h"
 
+#import "INAppLanguageManager.h"
+
 @interface AppDelegate ()
 
 @end
@@ -20,43 +22,45 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    LanguageManager *languageManager = [LanguageManager sharedLanguageManager];
+    [INAppLanguageManager shareINAppLanguageManager];
     
-    /*
-     * Check the user defaults to find whether a localisation has been set before.
-     * If it hasn't been set, (i.e. first run of the app), select the locale based
-     * on the device locale setting.
-     */
-    
-    // Check whether the language code has already been set.
-    if (![userDefaults stringForKey:DEFAULTS_KEY_LANGUAGE_CODE]) {
-        
-        NSLog(@"No language set - trying to find the right setting for the device locale.");
-        
-        NSLocale *currentLocale = [NSLocale currentLocale];
-        
-        // Iterate through available localisations to find the matching one for the device locale.
-        for (Locale *localisation in languageManager.availableLocales) {
-            
-            if ([localisation.languageCode caseInsensitiveCompare:[currentLocale objectForKey:NSLocaleLanguageCode]] == NSOrderedSame) {
-                
-                [languageManager setLanguageWithLocale:localisation];
-                break;
-            }
-        }
-        
-        // If the device locale doesn't match any of the available ones, just pick the first one.
-        if (![userDefaults stringForKey:DEFAULTS_KEY_LANGUAGE_CODE]) {
-            
-            NSLog(@"Couldn't find the right localisation - using default.");
-            [languageManager setLanguageWithLocale:languageManager.availableLocales[0]];
-        }
-    }
-    else {
-        
-        NSLog(@"The language has already been set :)");
-    }
+//    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+//    LanguageManager *languageManager = [LanguageManager sharedLanguageManager];
+//    
+//    /*
+//     * Check the user defaults to find whether a localisation has been set before.
+//     * If it hasn't been set, (i.e. first run of the app), select the locale based
+//     * on the device locale setting.
+//     */
+//    
+//    // Check whether the language code has already been set.
+//    if (![userDefaults stringForKey:DEFAULTS_KEY_LANGUAGE_CODE]) {
+//        
+//        NSLog(@"No language set - trying to find the right setting for the device locale.");
+//        
+//        NSLocale *currentLocale = [NSLocale currentLocale];
+//        
+//        // Iterate through available localisations to find the matching one for the device locale.
+//        for (Locale *localisation in languageManager.availableLocales) {
+//            
+//            if ([localisation.languageCode caseInsensitiveCompare:[currentLocale objectForKey:NSLocaleLanguageCode]] == NSOrderedSame) {
+//                
+//                [languageManager setLanguageWithLocale:localisation];
+//                break;
+//            }
+//        }
+//        
+//        // If the device locale doesn't match any of the available ones, just pick the first one.
+//        if (![userDefaults stringForKey:DEFAULTS_KEY_LANGUAGE_CODE]) {
+//            
+//            NSLog(@"Couldn't find the right localisation - using default.");
+//            [languageManager setLanguageWithLocale:languageManager.availableLocales[0]];
+//        }
+//    }
+//    else {
+//        
+//        NSLog(@"The language has already been set :)");
+//    }
     
     return YES;
 }

@@ -11,7 +11,7 @@
 		A20B03441A2B644700219DC2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A20B03431A2B644700219DC2 /* LaunchScreen.xib */; };
 		A20B03451A2B90AB00219DC2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A20B03471A2B90AB00219DC2 /* Localizable.strings */; };
 		A20B03531A2B96BF00219DC2 /* de.png in Resources */ = {isa = PBXBuildFile; fileRef = A20B034E1A2B96BF00219DC2 /* de.png */; };
-		A20B03541A2B96BF00219DC2 /* gb.png in Resources */ = {isa = PBXBuildFile; fileRef = A20B034F1A2B96BF00219DC2 /* gb.png */; };
+		A20B03541A2B96BF00219DC2 /* US.png in Resources */ = {isa = PBXBuildFile; fileRef = A20B034F1A2B96BF00219DC2 /* US.png */; };
 		A20B03551A2B96BF00219DC2 /* fr.png in Resources */ = {isa = PBXBuildFile; fileRef = A20B03501A2B96BF00219DC2 /* fr.png */; };
 		A20B03561A2B96BF00219DC2 /* it.png in Resources */ = {isa = PBXBuildFile; fileRef = A20B03511A2B96BF00219DC2 /* it.png */; };
 		A20B03571A2B96BF00219DC2 /* jp.png in Resources */ = {isa = PBXBuildFile; fileRef = A20B03521A2B96BF00219DC2 /* jp.png */; };
@@ -22,6 +22,7 @@
 		A2E284FD1A2528D5004987DF /* Language_ChangerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E284FC1A2528D5004987DF /* Language_ChangerTests.m */; };
 		A2E285121A252E45004987DF /* LanguageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E285111A252E45004987DF /* LanguageManager.m */; };
 		A2E285151A25337F004987DF /* Locale.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E285141A25337F004987DF /* Locale.m */; };
+		FAAE84D21C7AEC330035403F /* INAppLanguageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAE84D11C7AEC330035403F /* INAppLanguageManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,7 +45,7 @@
 		A20B034B1A2B90B300219DC2 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A20B034C1A2B90B400219DC2 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A20B034E1A2B96BF00219DC2 /* de.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = de.png; sourceTree = "<group>"; };
-		A20B034F1A2B96BF00219DC2 /* gb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gb.png; sourceTree = "<group>"; };
+		A20B034F1A2B96BF00219DC2 /* US.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = US.png; sourceTree = "<group>"; };
 		A20B03501A2B96BF00219DC2 /* fr.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fr.png; sourceTree = "<group>"; };
 		A20B03511A2B96BF00219DC2 /* it.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = it.png; sourceTree = "<group>"; };
 		A20B03521A2B96BF00219DC2 /* jp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jp.png; sourceTree = "<group>"; };
@@ -64,6 +65,8 @@
 		A2E285131A25337F004987DF /* Locale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Locale.h; path = Model/Locale.h; sourceTree = "<group>"; };
 		A2E285141A25337F004987DF /* Locale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Locale.m; path = Model/Locale.m; sourceTree = "<group>"; };
 		A2E285181A253CD6004987DF /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		FAAE84D01C7AEC330035403F /* INAppLanguageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INAppLanguageManager.h; sourceTree = "<group>"; };
+		FAAE84D11C7AEC330035403F /* INAppLanguageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INAppLanguageManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,7 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				A20B034E1A2B96BF00219DC2 /* de.png */,
-				A20B034F1A2B96BF00219DC2 /* gb.png */,
+				A20B034F1A2B96BF00219DC2 /* US.png */,
 				A20B03501A2B96BF00219DC2 /* fr.png */,
 				A20B03511A2B96BF00219DC2 /* it.png */,
 				A20B03521A2B96BF00219DC2 /* jp.png */,
@@ -126,6 +129,8 @@
 				A2E285111A252E45004987DF /* LanguageManager.m */,
 				A2E284E71A2528D4004987DF /* ViewController.h */,
 				A2E284E81A2528D4004987DF /* ViewController.m */,
+				FAAE84D01C7AEC330035403F /* INAppLanguageManager.h */,
+				FAAE84D11C7AEC330035403F /* INAppLanguageManager.m */,
 				A2E284ED1A2528D4004987DF /* Images.xcassets */,
 				A20B03431A2B644700219DC2 /* LaunchScreen.xib */,
 				A20B03411A2B63AF00219DC2 /* Main.storyboard */,
@@ -260,7 +265,7 @@
 				A20B03451A2B90AB00219DC2 /* Localizable.strings in Resources */,
 				A20B03571A2B96BF00219DC2 /* jp.png in Resources */,
 				A2E284EE1A2528D4004987DF /* Images.xcassets in Resources */,
-				A20B03541A2B96BF00219DC2 /* gb.png in Resources */,
+				A20B03541A2B96BF00219DC2 /* US.png in Resources */,
 				A20B03561A2B96BF00219DC2 /* it.png in Resources */,
 				A20B03421A2B63AF00219DC2 /* Main.storyboard in Resources */,
 			);
@@ -280,6 +285,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAAE84D21C7AEC330035403F /* INAppLanguageManager.m in Sources */,
 				A2E284E91A2528D4004987DF /* ViewController.m in Sources */,
 				A2E284E61A2528D4004987DF /* AppDelegate.m in Sources */,
 				A2E284E31A2528D4004987DF /* main.m in Sources */,

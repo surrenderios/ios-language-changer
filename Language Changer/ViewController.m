@@ -11,6 +11,8 @@
 #import "Locale.h"
 #import "Constants.h"
 
+#import "INAppLanguageManager.h"
+
 @interface ViewController ()
 
 @end
@@ -23,6 +25,9 @@
     
     self.flagImageView.contentMode = UIViewContentModeScaleAspectFit;
     
+    [self setIsRegisterINAppChangeLanguage:YES];
+    
+    /*
     LanguageManager *languageManager = [LanguageManager sharedLanguageManager];
     
     NSInteger selectedIndex = 0;
@@ -35,6 +40,19 @@
     [self.localePicker selectRow:selectedIndex inComponent:0 animated:YES];
     
     [self setupLocalisableElements];
+     */
+    
+    INAppLanguageManager *languageManager = [INAppLanguageManager shareINAppLanguageManager];
+    NSInteger selectedIndex = 0;
+    LocalLanguage *selectedLocale = [languageManager selectedLocalLanguage];
+    
+    selectedIndex = [languageManager.availableLocalLanguages indexOfObject:selectedLocale];
+    
+    // Move the picker to match what was selected previously.
+    [self.localePicker selectRow:selectedIndex inComponent:0 animated:YES];
+    
+    [self setupLocalisableElements];
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -61,6 +79,7 @@
  */
 - (void)setupLocalisableElements {
     
+    /*
     self.title = CustomLocalisedString(@"Title", @"The string to display in the navigation bar.");
     
     self.textView.text = CustomLocalisedString(@"Text", @"The string to display in the text view.");
@@ -68,6 +87,15 @@
     
     // Flag images are named after the country code of the Localisation.
     UIImage *flagImage = [UIImage imageNamed:[[LanguageManager sharedLanguageManager] getSelectedLocale].countryCode];
+    [self.flagImageView setImage:flagImage];
+     */
+    self.title = INAppLocalisedString(@"Title", @"The string to display in the navigation bar.");
+    
+    self.textView.text = INAppLocalisedString(@"Text", @"The string to display in the text view.");
+    self.textView.contentOffset = CGPointZero;
+    
+    // Flag images are named after the country code of the Localisation.
+    UIImage *flagImage = [UIImage imageNamed:[[INAppLanguageManager shareINAppLanguageManager] selectedLocalLanguage].countryCode];
     [self.flagImageView setImage:flagImage];
 }
 
@@ -80,16 +108,22 @@
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
     
-    return [LanguageManager sharedLanguageManager].availableLocales.count;
+    //return [LanguageManager sharedLanguageManager].availableLocales.count;
+    return [INAppLanguageManager shareINAppLanguageManager].availableLocalLanguages.count;
 }
 
 #pragma mark - UIPickerViewDelegate
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
     
-    Locale *localeForRow = [LanguageManager sharedLanguageManager].availableLocales[row];
+//    Locale *localeForRow = [LanguageManager sharedLanguageManager].availableLocales[row];
+//    
+//    return localeForRow.name;
     
-    return localeForRow.name;
+    LocalLanguage *localeForRow = [INAppLanguageManager shareINAppLanguageManager].availableLocalLanguages[row];
+    
+    return localeForRow.languageName;
+
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
@@ -98,6 +132,7 @@
      * Set the localisation that the user has just picked.
      */
     
+    /*
     LanguageManager *languageManager = [LanguageManager sharedLanguageManager];
     
     Locale *localeForRow = languageManager.availableLocales[row];
@@ -106,6 +141,19 @@
     
     [languageManager setLanguageWithLocale:localeForRow];
     
+    [self setupLocalisableElements];
+     */
+    INAppLanguageManager *languageManager = [INAppLanguageManager shareINAppLanguageManager];
+    
+    LocalLanguage *localeForRow = languageManager.availableLocalLanguages[row];
+    
+    NSLog(@"Language selected: %@", localeForRow.languageName);
+    
+    [languageManager setLanguageWithLocale:localeForRow];
+}
+
+- (void)INAppLanguageChanged:(NSNotification *)noti
+{
     [self setupLocalisableElements];
 }
 
