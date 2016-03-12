@@ -149,10 +149,12 @@ NSString *const INAppLanguageChangeNotification = @"INAppLanguageChangeNotificat
    //UIViewController achive this method will be called
 }
 
-- (void)dealloc
-{
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
+
+#warning 写的时候没有意识到是在Category里面,相当于替换了系统的方法,这样会导致崩溃
+//- (void)dealloc
+//{
+//    [[NSNotificationCenter defaultCenter] removeObserver:self];
+//}
 @end
 
 
