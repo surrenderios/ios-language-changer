@@ -16,18 +16,18 @@ Make all files into INAppLanguageManager.h && INAppLanguageManager.m, make it mo
 
 1. after didFinishLaunchingWithOptions, init the  INAppLanguageManager with code 
    
-   [INAppLanguageManager shareINAppLanguageManager];
+         [INAppLanguageManager shareINAppLanguageManager];
    
 2. register notification in where you want to change language, usually in UIViewController,ViewDidLoad methods with code
    
-   [self setIsRegisterINAppChangeLanguage:YES];
+         [self setIsRegisterINAppChangeLanguage:YES];
 
 3. Implemente method 
    
-   - (void)INAppLanguageChanged:(NSNotification *)noti,
+         - (void)INAppLanguageChanged:(NSNotification *)noti,
 
 In this method you could change localized string with 
 
-   INAppLocalisedString(@"key",nil)
+         INAppLocalisedString(@"key",nil)
 
 ### More you can clone the rep.
