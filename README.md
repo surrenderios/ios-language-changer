@@ -8,11 +8,11 @@ A simple app that allows the user to change language in-app, independent of the 
 See http://createdineden.com/blog/2014/december/12/language-changer-in-app-language-selection-in-ios/ for the accompanying tutorial.
 
 
-###What Did I Changed
+### What Did I Changed
 
 Make all files into INAppLanguageManager.h && INAppLanguageManager.m, make it more easy to use.
 
-###How to use INAppLanguageManager
+### How to use INAppLanguageManager
 
 1. after didFinishLaunchingWithOptions, init the  INAppLanguageManager with code 
 
@@ -30,4 +30,4 @@ In this method you could change localized string with
 
    INAppLocalisedString(@"key",nil)
 
-###More you can clone the rep.
+### More you can clone the rep.
