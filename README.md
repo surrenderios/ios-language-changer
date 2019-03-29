@@ -15,15 +15,15 @@ Make all files into INAppLanguageManager.h && INAppLanguageManager.m, make it mo
 ### How to use INAppLanguageManager
 
 1. after didFinishLaunchingWithOptions, init the  INAppLanguageManager with code 
-
+   
    [INAppLanguageManager shareINAppLanguageManager];
    
 2. register notification in where you want to change language, usually in UIViewController,ViewDidLoad methods with code
-
+   
    [self setIsRegisterINAppChangeLanguage:YES];
 
 3. Implemente method 
-
+   
    - (void)INAppLanguageChanged:(NSNotification *)noti,
 
 In this method you could change localized string with 
