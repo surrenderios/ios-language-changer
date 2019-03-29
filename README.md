@@ -28,6 +28,6 @@ Make all files into INAppLanguageManager.h && INAppLanguageManager.m, make it mo
 
 In this method you could change localized string with 
 
-         INAppLocalisedString(@"key",nil)
+      INAppLocalisedString(@"key",nil)
 
 ### More you can clone the rep.
